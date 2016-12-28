@@ -1,6 +1,8 @@
 # Nutritionix
 Nutrition from the Cloud
 
+#Demo
+https://www.nutritionix.com/
 
 #Git Flow
 Make sure you fork this repo to your private repo. Submit pull requests to have the changes merged.  Changes to the master branch of the MattSilvLLC repo will deploy directly to nutritionix.heroku.com.
