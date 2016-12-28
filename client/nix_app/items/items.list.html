@@ -1,0 +1,99 @@
+<div class="container items">
+  <div class="row wrap">
+    <div class="col-xs-12" ng-if="!vm.results.hits.length">
+      <div class="no-result">
+      <h3 ng-if="vm.originalQuery">
+        Sorry, we have no results for <strong>"{{vm.originalQuery}}"</strong> please try another search.
+      </h3>
+      <h3 ng-if="!vm.originalQuery">
+        Please enter a search query.
+      </h3>
+
+      <form role="search" ng-submit="vm.search.perform()">
+        <div class="input-group col-md-5">
+          <input type="text"
+                 autocomplete="off"
+                 focus-me="true"
+                 class="form-control"
+                 ng-model="vm.search.query"
+                 typeahead="suggestion.text for suggestion in vm.search.suggest($viewValue)"
+                 typeahead-on-select="vm.search.perform()"
+                 placeholder="Search Food Database"
+                 typeahead-wait-ms="20"
+                 typeahead-focus-first="false"
+          >
+              <span ng-click="vm.search.perform()" class="input-group-addon">
+                <i class="fa fa-search"> </i>
+              </span>
+        </div>
+      </form>
+      </div>
+    </div>    
+
+    <div class="col-xs-12" ng-if="vm.results.hits.length">
+      <h1 class="text-center">
+        Search Results
+      </h1>
+      <ul class="list-search-results">
+        <li ng-repeat="item in vm.results.hits">
+          <a href="#" class="item-link clearfix"
+             ui-sref="site.itemsDetail({
+                        brand: (item.brand_name | cleanurl),
+                        item_name: (item.item_name | cleanurl),
+                        item_id: item.item_id
+                      })">
+
+            <div class="arrow-wrap">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </div>
+
+            <div class="item-nutrition-wrap">
+              <div class="item-nutrition" itemscope itemtype="http://schema.org/NutritionInformation">
+                <strong class="value" class="calories">{{item.calories | caloriesfda}}</strong>
+                <span class="unit">Calories</span>
+              </div>
+            </div>
+            <div class="item-photo-wrap">
+              <img class="item-photo"
+                   ng-src="//res.cloudinary.com/nutritionix/image/upload/w_50,h_50,c_fit,d_default_abu3if.png/{{item.brand_id}}.png"
+                   alt="{{item.item_name}}">
+            </div>
+            <div class="item-description-wrap">
+              <div class="item-description">
+                <h4 class="name" ng-bind-html="item.item_name"></h4>
+                <h5 class="manufacturer" ng-bind-html="item.brand_name"></h5>
+                <h5 class="grey" itemscope itemtype="http://schema.org/NutritionInformation">
+                  {{item.serving_quantity}} {{item.serving_size_unit}}
+                  <span ng-show="item.serving_size_weight_grams"> ({{item.serving_size_weight_grams}} g) </span>
+                </h5>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <div class="text-center">
+        <pagination
+            total-items="vm.results.total_hits"
+            ng-model="vm.currentPage"
+            ng-change="vm.pageChanged()"
+            items-per-page="10"
+            class="pagination-sm"
+            rotate="false"
+            max-size="5"
+            state="vm.navigationState">
+        </pagination>
+       
+        <div class="row padding-bottom">
+            <div class="col-md-offset-3 col-md-6">
+              <pagination-info total-items="vm.results.total_hits"
+                               current-page="vm.getCurrentPage()"
+                               items-per-page="10">
+              </pagination-info>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

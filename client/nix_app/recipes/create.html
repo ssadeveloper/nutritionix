@@ -1,0 +1,61 @@
+<div class="grey-background" style="padding-bottom: 40px;">
+    <div class="page-banner" style="background: url('https://s3.amazonaws.com/cdn4-nutritionix/images/basil_bucket.jpg') center center no-repeat;">
+        <div class="overlay-300"></div>
+        <div class="overlay-text">
+            <h1 style="font-size: 42px;">Recipes</h1>
+        </div>
+    </div>
+    <div class="container" style="padding-left: 0px; padding-right: 0px;">
+        <ol class="breadcrumb">
+            <li><a href="#" ui-sref="site.recipes">Recipes</a> &gt;</li>
+            <li class="active">Create Recipe</li>
+        </ol>
+        <div class="col-lg-12">
+            <div class="content-margin">
+                <div class="row">
+                    <div class="col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+                        <h1>
+                        Create Recipe
+                      </h1>
+                        <br>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="recipe-name" class="col-sm-3 col-md-2 control-label">Recipe Name:</label>
+                                <div class="col-sm-5 col-md-4">
+                                    <input type="text" class="form-control" id="recipe-name" placeholder="Recipe Name">
+                                </div>
+                                <span class="help-block">eg. grilled cheese</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="servings" class="col-sm-3 col-md-2 control-label">Servings:</label>
+                                <div class="col-sm-2  col-md-2">
+                                    <input type="text" class="form-control" id="servings" value="1">
+                                </div>
+                                <span class="help-block">eg. if it's a large batch, how many separate portions does this make?</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="serving-name" class="col-sm-3 col-md-2 control-label">Serving Name</label>
+                                <div class="col-sm-4  col-md-4">
+                                    <input type="text" class="form-control" id="serving-name" placeholder="Serving">
+                                </div>
+                                <span class="help-block">eg. This could be 1 sandwich, 1 bowl, 1 cup, 1 batch. Default: 1 serving</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Ingredients" class="col-sm-3 col-md-2 control-label">Ingredients:</label>
+                                <div class="col-sm-5 col-md-4">
+                                    <textarea id="ingredients" name="ingredients" id="" cols="30" rows="10" class="form-control" placeholder=""></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-6 col-md-offset-2">
+                                    <button type="submit" class="btn btn-success">Create Recipe</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end container fluid -->
+</div>

@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <div class="btn-add-food pull-right">
+            <button type="button" class="btn btn-default" ng-click="vm.addFoodModal()"><i class="fa fa-2x fa-pencil-square-o"></i></button>
+        </div>
+        <h1>
+      {{ vm.user.get('first_name')}}'s Food Log
+    </h1>
+    <div class="sidebar">
+        <!-- Diet Logging Graph -->
+        <div class="panel panel-default panel-graph">
+            <div class="panel-heading">Diet Logging Graph</div>
+            <div class="panel-body text-center">
+                <cal-heat-map
+                  class="heat-map-calendar"
+                  data="vm.calendar"
+                  after-load-domain="vm.afterLoadDomain"
+                  legend="vm.calendarLegend">
+                </cal-heat-map>
+                <div class="row graph-summary" ng-if="vm.stats.total">
+                    <div class="col-xs-6 col-md-6">
+                        <p>Total Day Tracked</p>
+                        <strong>{{vm.stats.total}} Days</strong>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <p>% Days of Green</p>
+                        <strong>{{vm.stats.greenPercentage | number: 0}}%</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Diet Logging Graph -->
+        <div class="panel panel-default panel-recently-logged-foods" unreleased>
+            <div class="panel-heading">Recently Logged</div>
+            <div class="panel-body">
+                <select name="" class="form-control" id="">
+                    <option value="#">All Foods</option>
+                    <option value="#">Recipes</option>
+                    <option value="#">Common</option>
+                    <option value="#">Restaurant</option>
+                    <option value="#">Grocery</option>
+                </select>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="#" class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a> Apple
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a> Pizza
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a> Burrito
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a> Pasta
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="foodlog">
+        <div ng-repeat="date in vm.getDatesRange()">
+            <div class="log-header">
+                <div class="total-calories">
+                    <b>{{vm.totalCalories[date] | fdaRound: 'calories'}} Calories</b>
+                </div>
+                <b>{{date | amDateFormat:'ddd, MMM Do YYYY'}}</b>
+            </div>
+            <div class="log-item" ng-repeat="entry in vm.entriesByDates[date]">
+                <div class="calories">
+                    {{entry.nf_calories | fdaRound: 'calories'}}
+                </div>
+                <b class="item-name">{{entry.food_name}}</b>
+                <div class="serving">{{entry.serving_qty || 1}} {{entry.serving_unit}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

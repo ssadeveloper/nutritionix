@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h3 class="modal-title">Add Food</h3>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="query">What did you eat?</label>
+            <textarea rows="10" cols="100" name="query" id="query" class="form-control"
+                      placeholder="Eg: Turkey Club Sandwich and a 12 oz coke"
+                      ng-model="vm.query"
+                      focus-if
+                      focus-delay="500"
+            ></textarea>
+    </div>
+  </form>
+
+  <alert type="danger" ng-if="vm.error">
+    An unexpected server error has occurred.
+    <br> Please email <a href="mailto:support@nutritionix.com">support@nutritionix.com</a>
+    <span ng-if="vm.error.id">and reference the reference code: {{vm.error.id}}</span>
+  </alert>
+  <alert type="warning" ng-if="vm.notFound">
+    No foods were recognized in your request.
+    <br> If you believe this is an error, please email
+    <a href="mailto:support@nutritionix.com">support@nutritionix.com</a>
+    with the problematic query
+    <span ng-if="vm.notFound.id">and reference the reference code: <b>{{vm.notFound.id}}</b></span>
+  </alert>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-success" type="button" ng-click="vm.submit()" ng-disabled="!vm.query">Submit</button>
+  <button class="btn btn-default" type="button" ng-click="vm.close()">Cancel</button>
+</div>

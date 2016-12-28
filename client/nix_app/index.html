@@ -1,0 +1,50 @@
+<!doctype html>
+<html ng-app="nutritionix">
+<head>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Language" content="en">
+
+  <title ng-bind="MetaTags.title || 'Nutritionix'">Nutritionix</title>
+  <meta property="og:title" content="{{MetaTags.title || 'Nutritionix'}}"/>
+  <meta name="twitter:title" content="{{MetaTags.title || 'Nutritionix'}}"/>
+
+  <meta ng-if="MetaTags.description" name="description" content="{{MetaTags.description}}">
+  <meta ng-if="MetaTags.description" property="og:description" content="{{MetaTags.description}}"/>
+  <meta ng-if="MetaTags.description" name="twitter:description" content="{{MetaTags.description}}"/>
+
+  <meta ng-if="MetaTags.keywords" name="keywords" content="{{MetaTags.keywords}}">
+
+  <meta ng-repeat="(key, value) in MetaTags.properties" name="{{key}}" property="{{key}}" content="{{value}}">
+  <meta ng-if="MetaTags.properties.productID" itemprop="productID" content="{{MetaTags.properties.productID}}">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Oswald|Open+Sans|Roboto+Slab:400,300|Quicksand:400,300|Archivo+Black' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/nix_dist/vendors.css">
+  <link rel="stylesheet" href="/nix_dist/main.css">
+  <link rel="shortcut icon" sizes="16x16" href="https://s3.amazonaws.com/cdn4-nutritionix/images/nix_apple.png">
+
+  <link rel="prev" ng-if="$root.rel.prev" ng-href="{{$root.rel.prev}}"/>
+  <link rel="next" ng-if="$root.rel.next" ng-href="{{$root.rel.next}}"/>
+
+  <!--[if lte IE 9]>
+  <script src="//cdn.rawgit.com/jpillora/xdomain/0.7.3/dist/xdomain.min.js"></script>
+  <script>
+    xdomain.slaves({
+      "http://nix-export.s3.amazonaws.com":   "/proxy.html",
+      "http://d1gvlspmcma3iu.cloudfront.net": "/proxy.html",
+      "https://nix-export.s3.amazonaws.com":   "/proxy.html",
+      "https://d1gvlspmcma3iu.cloudfront.net": "/proxy.html"
+    });
+  </script>
+  <![endif]-->
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script type="text/javascript" src="/nix_dist/vendors.js"></script>
+  <script type="text/javascript" src="/nix_dist/main.js"></script>
+</head>
+<body>
+<div ui-view></div>
+</body>
+</html>

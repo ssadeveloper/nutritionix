@@ -1,0 +1,154 @@
+.row-bg {
+	background-color: #fff;
+	border: 1px solid rgba(19, 19, 19, 0.1);
+}
+
+.api-package{ 
+	h2 {
+		font-weight: bold;
+		color: $official_green;
+		margin-top: 10px; 
+	}
+
+	h3 {
+		color: $business-header-color;
+		font-size: 40px;
+		font-family: 'Quicksand', sans-serif;
+	}
+
+	.btn {
+		letter-spacing: -.05em;
+		font-size: 20px;
+		font-family: 'Quicksand', sans-serif;
+	}	
+
+	.section-content {
+		font-size: 16px;
+		line-height: 26px;
+		min-height: auto;
+		@media(min-width: 768px) {
+			min-height: 300px;
+		}
+
+		ul {
+			padding-left: 0;
+			list-style: none;
+
+			@media(min-width: 992px) {
+				min-height: 195px;
+			}
+
+			li {
+				padding: 3px 0;
+			}			
+		}			
+	}	
+}
+
+.list-features {
+	line-height: 26px;
+	font-size: 16px;
+
+	@media(min-width: 1200px) {
+		font-size: 18px;
+		line-height: 30px;
+	}
+}
+
+@media(min-width: 1200px) {
+	.api-package .section-content {
+		min-height: 160px;
+	}
+	.row-bg {
+		padding: 30px 0;
+	}
+}
+
+.list-restaurant-feature {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 0 10px;
+	
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 10px 10px;
+
+		.fa {
+			margin-left: -17px;
+			color: #5cb85c;
+		}
+	}
+}
+
+.bordered-box.business {
+	@media(min-width: 768px) {
+		min-height: 325px;
+	}
+	@media(min-width: 992px) {
+		min-height: 304px;
+	}		
+}
+
+.nutritionlink-features {
+	margin: 0 0 0 -15px;
+	padding: 0;
+	@media (min-width: 768px) {
+		margin-left: -20px;
+	}
+	li {
+			margin: 0;
+			padding: 0 0 15px 50px;
+			font-size: 18px;
+			@media (min-width: 768px) {
+				padding-left: 95px;
+				font-size: 22px;
+			}			
+			.fa {
+				font-size: 50px;
+				color: $official_green;				
+				@media (min-width: 768px) {
+					font-size: 80px;
+				}	
+			}
+			h4 {
+				margin-bottom: 6px;
+				margin-left: 70px;
+				@media (min-width: 768px) {
+					margin-left: 105px;
+				}					
+			}
+			p {				
+				font-size: 14px;
+				margin-left: 0;
+				@media (min-width: 768px) {
+					margin-left: 105px;
+				}				
+			}
+			span.pull-left {
+				width: 50px;
+				display: block;
+
+				@media (min-width: 768px) {
+					width: 80px;
+				}
+			}
+	}
+} 
+
+.nutritionlink-brands {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	li {
+		padding: 15px;
+		display: block;
+		@media (min-width: 768px) {
+			display: inline-block;
+		}
+	}
+}
+.panel-submit-restaurant {
+	margin-top: 25px;
+}

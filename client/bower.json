@@ -1,0 +1,56 @@
+{
+  "name": "Nutritionix_Website",
+  "version": "1.0.0",
+  "homepage": "http://www.nutritionix.com",
+  "authors": [
+    "Doug Phung <phung.doug@gmail.com>",
+    "Yurko Fedoriv <yfedoriv@nutritionix.com>"
+  ],
+  "description": "The New Shiny Website",
+  "main": ".server/index.js",
+  "license": "closed",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-bootstrap": "~0.13.0",
+    "angular-chart.js": "~0.8.3",
+    "angular-count-to": "*",
+    "angular-encode-uri": "~1.0.0",
+    "angular-google-analytics": "~1.1.0",
+    "angular-nutritionix-api": "~1.0.1",
+    "angular-rangeslider": "~0.0.14",
+    "angular-sanitize": "~1.4.8",
+    "angular-touch": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap-sass": "~3.3.5",
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.1",
+    "nutrition-label": "https://github.com/Yurko-Fedoriv/nutrition-label.git#6173aa0b924eed3ebfdbe290c5a348ab96cef658",
+    "ui-router-metatags": "https://github.com/tinusn/ui-router-metatags.git#d38d567824857c45279fab8de2cef557fa1bb955",
+    "angular-pusher": "~0.0.14",
+    "angular-moment": "~1.0.0-beta.2",
+    "angular-animate": "~1.4.8",
+    "angular-loading-bar": "~0.8.0",
+    "angular-shims-placeholder": "~0.4.6",
+    "ng-debounce": "~0.1.7",
+    "ngtweet": "~0.2.0",
+    "angular-truncate": "https://github.com/Yurko-Fedoriv/angular-truncate.git#1b2006f41f69e5e761b90e9c5c6e37c33524d952",
+    "angular-messages": "~1.4.8",
+    "angular-facebook": "~0.2.3",
+    "ngstorage": "~0.3.10",
+    "cal-heatmap": "~3.5.3",
+    "ng-focus-if": "~1.0.2",
+    "moment-timezone": "~0.5.0",
+    "track-api-angular-client": ">=1.0.2"
+  },
+  "resolutions": {
+    "angular": "1.4.9"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Nutritionix_Website",
+  "version": "1.0.0",
+  "description": "Nutrition from the Cloud",
+  "main": ".server/index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/gulp && cd server && npm start",
+    "preinstall": "if ! which bower > /dev/null; then npm install -g bower; fi",
+    "postinstall": "cd server && npm install && cd ../client && bower install",
+    "lintTests": "./node_modules/.bin/eslint server/ && ./node_modules/.bin/eslint client/",
+    "pre-prod": "./node_modules/.bin/gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mattsilvllc/NewSiteDesign.git"
+  },
+  "author": "Doug Phung",
+  "bugs": {
+    "url": "https://github.com/mattsilvllc/newsitedesign/issues"
+  },
+  "dependencies": {
+    "fs-extra": "^0.26.2",
+    "gulp": "^3.8.11",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-gzip": "^1.1.0",
+    "gulp-if": "1.2.5",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-minify-css": "^1.2.2",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^1.1.0",
+    "node-sha1": "^1.0.1",
+    "prerender-node": "^2.1.0",
+    "redis": "^2.4.2",
+    "streamqueue": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "eslint": "^0.16.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-nodemon": "^2.0.6",
+    "intern": "^3.0.3"
+  },
+  "cacheDirectories": [
+    "./.heroku",
+    "./node_modules"
+  ]
+}

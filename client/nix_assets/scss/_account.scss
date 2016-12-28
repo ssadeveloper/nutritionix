@@ -1,0 +1,285 @@
+.track .container {
+    @media(min-width: 992px) {
+        width: 900px;
+    }
+    @media(min-width: 1200px) {
+        width: 900px;
+    }
+}
+
+.brand-track {
+    @media(min-width: 992px) {
+        margin-left: -15px !important;
+    }
+    @media(min-width: 1200px) {
+        margin-left: -30px !important;
+    }
+}
+
+.nav-spacer {
+    margin-top: 50px;
+    background-color: #fff;
+    border: 1px solid #efefef;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    @media(min-width: 768px) {
+        margin-top: 85px;
+    }
+}
+
+.btn-add-food {
+    @media(min-width: 768px) {
+        margin-right: 370px;
+    }
+}
+
+.container.nav-spacer h1 {
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 30px;
+    line-height: 30px;
+    font-size: 28px;
+}
+
+.margin-bottom {
+    margin-bottom: 15px;
+}
+
+
+/* Food Logs */
+.foodlog {
+    border: 1px solid #ddd;
+    border-bottom: none;
+    @media(min-width: 768px) {
+        margin-right: 370px;
+    }
+}
+
+.log-header {
+    padding: 12px;
+    background-color: #EBFAEF;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.log-item {
+    font-size: 15px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.total-calories {
+    float: right;
+}
+
+.calories {
+    float: right;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    text-align: center;
+    color: #666;
+}
+
+.serving {
+    font-size: 13px;
+    color: #666;
+}
+.grid {
+    width: 28px;
+    height: 28px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    float: left;
+
+    &.min {
+        background-color: #BBDCA2;
+    }
+    &.med {
+        background-color: #88C25A;
+    }
+    &.max {
+        background-color: #58A61C;
+    }
+    &.max1 {
+        background-color: #F29898;
+    }
+    &.max2 {
+        background-color: #E64A48;
+    }
+    &.max3 {
+        background-color: #DC0000;
+    }    
+}
+
+/* Diet Logging Graph */
+.panel-graph {
+    margin-bottom: 20px;
+    @media(min-width: 768px) {
+
+        margin-top: -60px;
+ 
+    }
+
+    .panel-body {
+        padding-bottom: 0;
+    }  
+    .legend {
+        font-size: 11px;
+        padding-bottom: 15px;
+        .text {
+            padding: 0 6px;
+            margin-top: -4px;
+            vertical-align: super;          
+        }
+        .grid {
+            width: 16px;
+            height: 16px;
+            margin-right: -3px;
+        }
+        * {
+            display: inline-block;
+            float: none;           
+        }        
+    }
+    h4 {
+        text-align: left;
+        color: #999;
+    }            
+}
+
+    .panel-heading {
+        font-weight: bold;
+    } 
+
+
+
+.cal-heatmap-container {
+    .subdomain-text {
+        fill: black;
+    }
+    .q3 {
+        background-color: #BBDCA2;
+        fill: #BBDCA2
+    }
+    .q2 {
+        background-color: #88C25A;
+        fill: #88C25A
+    }
+    .q1 {
+        background-color: #58A61C;
+        fill: #58A61C
+    }
+    .q4 {
+        background-color: #F29898;
+        fill: #F29898
+    }
+    .q5 {
+        background-color: #E64A48;
+        fill: #E64A48
+    }
+    .q6 {
+        background-color: #DC0000;
+        fill: #DC0000
+    }
+    .graph-label {
+        color: #999;
+        font-size: 18px;
+    }
+}
+
+.panel-recently-logged-foods {
+    .list-group {
+        margin-bottom: 0;
+        border: none;
+        .list-group-item {
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            padding-left: 10px;
+            padding-right: 5px;
+            &:first-child {
+                border-top: none;
+            }
+        }
+    }
+}
+
+.table-wrap {
+    display: inline-block;
+}
+.table-grid {
+    margin: 0 auto 15px auto;
+    thead {
+        tr {
+            th {
+                text-align: center;
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                margin: 0;
+                padding: 0;
+                line-height: normal;
+
+                &.log-day {
+                    font-size: 11px;
+                    text-align: right;
+                    padding: 0 6px 0 0;                    
+                }               
+            }
+        }
+    }
+}
+
+
+.graph-summary {
+    border-top: 1px solid #ddd;
+    > div {
+        border-right: 1px solid #ddd;
+        min-height: 63px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+
+        &:last-child {
+            border: none;       
+        } 
+
+        > p {
+            margin-bottom: 0;
+            font-size: 12px;
+        }
+
+        > strong {
+            font-size: 18px;
+        }  
+    }
+}
+
+
+
+@media (min-width: 768px) {
+    .panel-graph {
+
+    }
+}
+
+.sidebar {
+ 
+    @media(min-width: 768px) {
+        width: 340px;
+        float: right;
+    }
+}
+
+.heat-map-calendar {
+    margin-bottom: 10px;
+}
+
+.ch-tooltip {
+    color: #333;
+    background: #f5f5f5;
+    width: 100px;
+}

@@ -1,0 +1,102 @@
+<h1 class="text-center">
+  Complete Registration
+</h1>
+<p>
+  Please complete the following to verify your account:
+</p>
+<form name="form" ng-submit="vm.createAccount()">
+  <div ng-if="vm.showLinkHash" class="form-group"
+       ng-class="{'has-error': form.linkHash.$dirty && !(form.linkHash.$error | isEmptyObject)}">
+    <label for="linkHash" class="sr-only">Link Hash</label>
+    <input id="linkHash" type="text" name="linkHash" placeholder="Link Hash" class="form-control"
+           ng-model="vm.signup.link_hash" required>
+
+    <div ng-show="form.linkHash.$dirty && !(form.linkHash.$error | isEmptyObject)"
+         ng-messages="form.linkHash.$error" class="text-danger" role="alert">
+      <div ng-message="required">Link Hash is required</div>
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': form.firstName.$dirty && !(form.firstName.$error | isEmptyObject)}">
+    <label for="firstName" class="sr-only">First Name</label>
+    <input id="firstName" type="text" name="firstName" placeholder="First Name" class="form-control"
+           ng-model="vm.signup.first_name" required>
+
+    <div ng-show="form.firstName.$dirty && !(form.firstName.$error | isEmptyObject)"
+         ng-messages="form.firstName.$error" class="text-danger" role="alert">
+      <div ng-message="required">First Name is required</div>
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': form.lastName.$dirty && !(form.lastName.$error | isEmptyObject)}">
+    <label for="lastName" class="sr-only">Last Name</label>
+    <input id="lastName" type="text" name="lastName" placeholder="Last Name" class="form-control"
+           ng-model="vm.signup.last_name" required>
+
+    <div ng-show="form.lastName.$dirty && !(form.lastName.$error | isEmptyObject)"
+         ng-messages="form.lastName.$error" class="text-danger" role="alert">
+      <div ng-message="required">Last Name is required</div>
+    </div>
+  </div>
+
+  <div ng-if="!vm.facebook" class="form-group"
+       ng-class="{'has-error': form.password.$dirty && !(form.password.$error | isEmptyObject)}">
+    <label for="password" class="sr-only">Password</label>
+
+    <div class="input-group">
+      <input id="password" type="{{vm.showPassword ? 'text' : 'password'}}" name="password" placeholder="Password"
+             class="form-control"
+             ng-model="vm.signup.password" required>
+      <a href tooltip="show password" ng-show="!vm.showPassword" class="input-group-addon"
+         ng-click="vm.showPassword = true">
+        <i class="fa fa-eye"></i>
+      </a>
+      <a href tooltip="hide password" ng-show="vm.showPassword" class="input-group-addon"
+         ng-click="vm.showPassword = false">
+        <i class="fa fa-eye-slash"></i>
+      </a>
+    </div>
+    <div ng-show="form.password.$dirty && !(form.password.$error | isEmptyObject)"
+         ng-messages="form.password.$error" class="text-danger" role="alert">
+      <div ng-message="required">Password is required</div>
+    </div>
+  </div>
+
+  <!--<div class="form-group">
+    <div class="checkbox">
+      <label>
+        <input ng-model="vm.confirm.danielle" type="checkbox"> I give "Danielle Starin" permission to view my food
+        logging activity.
+      </label>
+    </div>
+  </div>-->
+
+  <div class="form-group">
+    <div class="checkbox">
+      <label>
+        <input ng-model="vm.confirm.track" type="checkbox"> I agree to Nutritionix Track <a href="https://www.iubenda.com/privacy-policy/7754814" target="_blank">terms of
+        service</a>
+      </label>
+    </div>
+  </div>
+
+  <p>
+    <button type="submit" class="btn btn-success btn-lg btn-block"
+            ng-disabled="form.$invalid || !vm.confirm.track"
+    >Create Account
+    </button>
+
+    <alert class="submit-alert" type="danger" ng-if="vm.createAccount.$error">
+      <span ng-if="vm.createAccount.$error.message">{{vm.createAccount.$error.message}}</span>
+      <span ng-if="!vm.createAccount.$error.message">An unexpected server error has occurred.</span>
+      <br>
+      <small>
+        Please email <a href="mailto:support@nutritionix.com">support@nutritionix.com</a>
+        <span ng-if="vm.createAccount.$error.id">
+            and reference the reference code: {{vm.createAccount.$error.id}}
+        </span>
+      </small>
+
+    </alert>
+  </p>
+</form>

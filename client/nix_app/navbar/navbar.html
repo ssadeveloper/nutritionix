@@ -1,0 +1,62 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button id="navmenu-toggle"
+                type="button"
+                class="navbar-toggle"
+                ng-class="{'toggle-active': !vm.navBarCollapsed, 'toggle-inactive': vm.navBarCollapsed}"
+                ng-click="vm.toggleNavBar()">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars"></i>
+        </button>
+        <button
+                id="food-toggle"
+                type="button"
+                class="navbar-toggle"
+                ng-class="{'toggle-active': !vm.searchBarCollapsed, 'toggle-inactive': vm.searchBarCollapsed}"
+                ng-click="vm.toggleSearchBar()">
+          <span class="sr-only">Toggle search bar</span>
+          <i class="fa fa-search"></i>
+        </button>
+        <a class="navbar-brand" href="#" ui-sref="site.landing">
+          <img ng-src="https://s3.amazonaws.com/cdn4-nutritionix/images/nutritionix_logo_500px.png" alt="Nutritionix">
+        </a>
+      </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" collapse="vm.navBarCollapsed">
+        <ul id="nav-menu" class="nav navbar-nav navbar-right">
+          <li><a href="#" ui-sref="site.database">Our Database</a></li>
+          <li><a href="#" ui-sref="site.consumerTools">Consumer Tools</a></li>
+          <li><a href="#" ui-sref="site.business">Business Solutions</a></li>
+          <li><a href="#" ui-sref="site.contact" >Contact</a></li>
+        </ul>
+      </div>
+    <div id="searchBar" class="navbar-collapse" collapse="vm.searchBarCollapsed">
+        <ul class="nav navbar-nav">
+          <form role="search" ng-submit="vm.search.perform()">
+            <div class="input-group">
+              <input  type="text"
+                      autocomplete="off"
+                      focus-me="!vm.searchBarCollapsed" id="foodSearch"
+                      class="form-control"
+                      ng-model="vm.search.query"
+                      typeahead="suggestion.text for suggestion in vm.search.suggest($viewValue)"
+                      typeahead-on-select="vm.search.perform()"
+                      placeholder="Search Food Database"
+                      typeahead-wait-ms="20"
+                      typeahead-focus-first="false"
+                      >
+              <span ng-click="vm.search.perform()" class="input-group-addon">
+                <i class="fa fa-search"> </i>
+              </span>
+              <div ng-show="noResults" class="no-results">
+                 <i class="glyphicon glyphicon-remove"></i> No Results Found
+              </div>
+            </div>
+        </form>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

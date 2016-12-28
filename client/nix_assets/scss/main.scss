@@ -1,0 +1,333 @@
+@import "variables";
+//Original Bootstrap's CSS depends on empty href attributes to style cursors for several
+//components (pagination, tabs etc.). But in AngularJS adding empty href
+//attributes to link tags will cause unwanted route changes.
+.nav,
+.pagination,
+.carousel-control,
+.panel-title a {
+    cursor: pointer;
+}
+
+@import '../../nix_bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import '../../nix_bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import 'colors';
+@import 'landing';
+@import 'login';
+@import 'navbar';
+@import 'carousel';
+@import 'database';
+@import 'grocery';
+@import 'consumertools';
+@import 'business';
+@import 'contact';
+@import 'items';
+@import 'brands';
+@import 'about';
+@import 'modal';
+@import "naturalDemo";
+@import 'breadcrumbs';
+@import 'twitter';
+@import 'account';
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url($icon-font-path + 'glyphicons-halflings-regular.eot');
+    src: url($icon-font-path + 'glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url($icon-font-path + 'glyphicons-halflings-regular.woff2') format('woff2'), url($icon-font-path + 'glyphicons-halflings-regular.woff') format('woff'), url($icon-font-path + 'glyphicons-halflings-regular.ttf') format('truetype'), url($icon-font-path + 'glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+html {
+    background-color: #f8f8f8;
+    @media (min-width: 992px) {
+        min-height: 100%;
+        position: relative;
+    }
+}
+body {
+
+    @media(min-width: 992px) {
+        margin-bottom: $footer-height;
+    }
+}
+body,
+html {
+    font-family: Open Sans, sans-serif;
+}
+
+html * {
+    -webkit-font-smoothing: antialiased;
+}
+
+.navbar-brand img {
+    width: 120px;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+    margin-top: 0;
+    @media(min-width: 768px) {
+        margin-top: 20px;
+    }
+}
+
+h4 {
+    line-height: normal;
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+    background-color: transparent;
+    font-size: 11px;
+    text-align: right;
+}
+
+.overlay {
+    height: 500px;
+}
+
+.overlay-text h1 {
+    font-size: 26px;
+    margin: 0;
+    line-height: normal;
+    @media(min-width: 768px) {
+        font-size: 38px;
+    }
+    @media(min-width: 992px) {
+        font-size: 42px;
+    }    
+
+}
+
+.overlay-300 {
+    position: absolute;
+    height: 120px;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, .75), rgba(0, 0, 0, .25));
+    @media(min-width: 768px) {
+        height: 150px;
+    }
+}
+
+.page-banner {
+    height: 120px;
+    background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: table;
+    width: 100%;
+    &.basil-bucket {
+        background-image: url('https://s3.amazonaws.com/cdn4-nutritionix/images/basil_bucket.jpg');
+    }
+    &.database-server {
+        background-image: url('https://s3.amazonaws.com/cdn4-nutritionix/images/database_banner2.jpg');
+    }
+    &.spreadsheet {
+        background-image: url('/nix_assets/images/spreadsheet.jpg');
+    }
+    @media(min-width: 768px) {
+        height: 150px;
+    }
+}
+
+.block {
+    display: block;
+}
+
+.nutritionLabel {
+    width: auto !important;
+    @media(min-width: 450px) {
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px !important;
+    }
+    @media(min-width: 768px) {
+        width: auto !important;
+    }
+}
+
+.nutritionLabel input.unitQuantityBox {
+    width: 32px !important;
+    height: 20px !important;
+}
+
+.fa-7x {
+    padding-top: 10px !important;
+}
+
+.nobr {
+    white-space: nowrap;
+}
+
+.nbsp:after {
+    display: inline-block;
+    content: "\00a0";
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.help-block {
+    font-size: 12px;
+    color: #999;
+    margin: 0 15px;
+    @media(min-width: 992px) {
+        margin: 0;
+    }
+}
+
+.content-404 {
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @media(min-width: 768px) {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    @media(min-width:992px) {
+        padding-top: 160px;
+        padding-bottom: 160px;
+    }
+}
+
+.error-page-message {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.bg-white {
+    background-color: #fff;
+    border: 1px solid #f4f4f4;
+}
+
+.padding {
+    padding: $padding 0;
+    @media(min-width: 768px) {
+        padding: 25px 10px;
+    }
+}
+
+.padding {
+    padding: $padding;
+}
+
+.padding-top {
+    padding-top: $padding;
+}
+
+.padding-right {
+    padding-right: $padding;
+}
+
+.padding-bottom {
+    padding-bottom: $padding;
+}
+
+.padding-left {
+    padding-left: $padding;
+}
+
+.row.padding {
+    padding-left: 0;
+    padding-right: 0;
+    @media (min-width: 768px) {
+        padding-left: $padding;
+        padding-right: $padding;
+    }
+}
+
+.snippet pre code {
+    color: #2f6f9f;
+}
+
+.na {
+    color: #4f9fcf;
+}
+
+.nv {
+    color: #d44950;
+}
+
+.as-table {
+    display: table;
+    .as-table-cell {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+.subtext {
+    font-family: Open Sans, sans-serif;
+    font-size: 16px;
+    -webkit-filter: blur(0px);
+}
+
+.bordered-text {
+    border: 1px dotted #ccc;
+    padding: 6px 10px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.btn {
+    font-family: Quicksand, sans-serif;
+}
+
+.powered-by {
+    width: 140px;
+    display: inline-block;
+    color: #999;
+    text-decoration: none;
+    span {
+        font-size: 10px;
+        display: block;
+    }
+    &:hover {
+        text-decoration: none;
+        color: #999;
+    }
+}
+
+.table-fluid {
+    width: 100%;
+}
+#iubenda_policy {
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+}
+#iubenda_policy .for_boxes,
+#iubenda_policy .for_boxes > li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.submit-alert {
+  margin: 10px 0;
+}
+.error-404 {
+    margin-top: 150px;
+}
+
+
+.modal-footer {
+    text-align: center;
+    border: none;
+    padding-top: 0;
+}

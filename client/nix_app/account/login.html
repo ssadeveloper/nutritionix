@@ -1,0 +1,71 @@
+<form ng-submit="vm.signIn()" name="form" novalidate>
+  <div class="form-group" ng-class="{'has-error': form.email.$dirty && !(form.email.$error | isEmptyObject)}">
+    <label for="email" class="sr-only">Email</label>
+    <input id="email" type="email" name="email" placeholder="somebody@example.com" class="form-control"
+           ng-model="vm.credentials.email" required>
+
+    <div ng-show="form.email.$dirty && !(form.email.$error | isEmptyObject)"
+         ng-messages="form.email.$error" class="text-danger" role="alert">
+      <div ng-message="required">Email is required</div>
+      <div ng-message="email">This is not a valid email</div>
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': form.password.$dirty && !(form.password.$error | isEmptyObject)}">
+    <label for="password" class="sr-only">Password</label>
+
+    <div class="input-group">
+      <input id="password" type="{{vm.showPassword ? 'text' : 'password'}}" name="password" placeholder="Password"
+             class="form-control"
+             ng-model="vm.credentials.password" required>
+      <a href tooltip="show password" ng-show="!vm.showPassword" class="input-group-addon"
+         ng-click="vm.showPassword = true">
+        <i class="fa fa-eye"></i>
+      </a>
+      <a href tooltip="hide password" ng-show="vm.showPassword" class="input-group-addon"
+         ng-click="vm.showPassword = false">
+        <i class="fa fa-eye-slash"></i>
+      </a>
+    </div>
+    <div ng-show="form.password.$dirty && !(form.password.$error | isEmptyObject)"
+         ng-messages="form.password.$error" class="text-danger" role="alert">
+      <div ng-message="required">Password is required</div>
+    </div>
+  </div>
+
+  <p class="padding-bottom">
+    <button type="submit" class="btn btn-success btn-lg btn-block" ng-disabled="form.$invalid">Sign in</button>
+
+    <alert class="submit-alert" type="danger" ng-if="vm.signIn.$error">
+      <span ng-if="vm.signIn.$error.message">{{vm.signIn.$error.message}}</span>
+      <span ng-if="!vm.signIn.$error.message">An unexpected server error has occurred.</span>
+      <br>
+      <small>
+        Please email <a href="mailto:support@nutritionix.com">support@nutritionix.com</a>
+        <span ng-if="vm.signIn.$error.id">
+            and reference the reference code: {{vm.signIn.$error.id}}
+        </span>
+      </small>
+
+    </alert>
+  </p>
+  <p>
+    <a href ng-click="vm.loginWithFacebook()" class="btn btn-primary btn-lg btn-block">
+      <i class="fa fa-facebook">&nbsp;</i>Login With Facebook
+    </a>
+
+    <alert class="submit-alert" type="danger" ng-if="vm.loginWithFacebook.$error">
+      FB Login failed
+    </alert>
+  </p>
+
+  <p>
+    <a ui-sref="account.auth.create.step1" class="btn btn-default btn-lg btn-block">Create Account</a>
+  </p>
+</form>
+<br>
+
+<p class="text-center">
+  <a href="#">Forgot your password?</a>
+</p>
+

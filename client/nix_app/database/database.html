@@ -1,0 +1,89 @@
+<snap-engage></snap-engage>
+<div class="grey-background">
+    <!-- page wrap necessary for sticky footer -->
+    <div class="page-banner database-server">
+        <div class="overlay-300"> </div>
+        <div class="overlay-text">
+            <h1> Nutritionix Database</h1>
+            <p class="text-center subtext">
+                {{vm.total_items | number}} food items and growing!
+            </p>
+        </div>
+    </div>
+    <ol class="breadcrumb">
+        <li class="active">Nutritionix Database</li>
+    </ol>
+    <div class="container">
+        <div class="col-lg-4 database-section-container">
+            <div class="row databaseImage">
+                <h3>Grocery Foods</h3>
+            </div>
+            <div class="database-info">
+                <h5>{{vm.results.data.cpg_count | number }} items from <a ui-sref="site.brandsList.navigate({type: 'grocery'})">{{vm.results.data.cpg_brands | number}} grocery brands </a> </h5>
+                <p>
+                    The largest grocery database on the planet, with coverage for over 92% of grocery items in the U.S. and Canada. On average, we are adding or updating over 3000 grocery items every month.
+                </p>
+                <p class="text-left">
+                    <a href="https://s3.amazonaws.com/cdn4-nutritionix/sampleData/grocery_sample-2015.csv">
+                        <i class="fa fa-file-excel-o"></i> Download Sample Grocery Data (.csv)
+                    </a>
+                </p>
+                <p class="text-left">
+                    <a ui-sref="site.brandsList.navigate({type: 'grocery'})">
+                        <i class="fa fa-search"></i> Explore Grocery Data
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4 database-section-container">
+            <div class="row databaseImage2">
+                <h3>Restaurant Foods</h3>
+            </div>
+            <div class="database-info">
+                <h5>{{vm.results.data.restaurant_count | number }} items from <a ui-sref="site.brandsList.navigate({type: 'restaurant'})">{{vm.results.data.restaurant_brands}} restaurants</a> </h5>
+                <p>
+                    We monitor over 600 restaurant chains to detect new and changed menu items. Our restaurant data is so comprehensive, <a href="http://blog.nutritionix.com/2015/06/02/nutritionix-integrates-with-google-knowledge-graph/" target="_blank">Google</a> even uses it!
+                    <br />
+                </p>
+                <p class="text-left">
+                    <a href="https://s3.amazonaws.com/cdn4-nutritionix/sampleData/restaurant_sample-2015.csv">
+                        <i class="fa fa-file-excel-o"></i> Download Sample Restaurant Data(.csv)
+                    </a>
+                </p>
+                <p class="text-left">
+                    <a ui-sref="site.brandsList.navigate({type: 'restaurant'})">
+                        <i class="fa fa-search"></i> Explore Restaurant Data
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4 database-section-container">
+            <div class="row databaseImage3">
+                <h3>Common Foods</h3>
+            </div>
+            <div class="database-info">
+                <h5>{{vm.results.data.usda_count| number }} common foods</h5>
+                <p>
+                    Our registered dietitian team helps us curate and analyze recipes to make sure we have coverage on common food dishes from all over the world.
+                </p>
+                <p class="text-left">
+                    <a href="https://s3.amazonaws.com/cdn4-nutritionix/sampleData/usda_sample-2015.csv">
+                        <i class="fa fa-file-excel-o"></i> Download Sample Common Foods Data
+                    </a>
+                </p>
+                <p>
+                    <a ui-sref="site.database-recently-added-common-foods">
+                        <i class="fa fa-list"></i>
+                        Recently added common foods
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <a ui-sref="site.database-recently-added">Browse our most recently added foods</a>
+            </div>
+        </div>
+    </div>
+    <div mini> </div>
+</div>

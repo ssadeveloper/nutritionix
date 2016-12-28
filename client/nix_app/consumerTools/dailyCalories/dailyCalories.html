@@ -1,0 +1,146 @@
+<div class="grey-background ">
+  <div class="page-banner basil-bucket">
+    <div class="overlay-300"></div>
+    <div class="overlay-text">
+      <h1>Calculate Daily Calories</h1>
+    </div>
+  </div>
+  <ol class="breadcrumb">
+    <li><a href="#" ui-sref="site.consumerTools">Consumer Tools</a></li>
+    >
+    <li class="active">Calculate Daily Calories</li>
+  </ol>
+  <div class="container container-daily-calories">
+    <div class="col-lg-12">
+      <div class="row bg-white padding">
+        <div class="col-md-6">
+          <h3>
+            Calculate Daily Calories
+          </h3>
+          <form class="form-horizontal form-daily-calorie">
+            <div class="form-group">
+              <label for="units" class="col-xs-3 col-sm-2 control-label">Units</label>
+              <div class="col-xs-5 col-sm-4">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="unit" value="imperial" ng-model="vm.unitSystem">Imperial
+                    (US)
+                  </label>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="unit" value="metric" ng-model="vm.unitSystem"> Metric
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="units" class="col-xs-3 col-sm-2 control-label">Gender</label>
+              <div class="col-xs-5 col-sm-4">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="gender" value="female" ng-model="vm.gender"> Female
+                  </label>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4">
+                <div class="radio">
+                  <label>
+                    <input name="gender" type="radio" value="male" ng-model="vm.gender"> Male
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 col-sm-2 control-label">Weight</label>
+              <div class="col-xs-4 has-helper-text">
+                <div ng-if="vm.unitSystem == 'metric'">
+                  <input type="text" class="form-control"
+                         ng-model="vm.weight.kg"
+                         ng-change="vm.calculateWeights()"
+                         placeholder="kg">
+                  <span class="help-text help-text-right">kg</span>
+                </div>
+                <div ng-if="vm.unitSystem == 'imperial'">
+                  <input type="text" class="form-control"
+                         ng-model="vm.weight.lb"
+                         ng-change="vm.calculateWeights()"
+                         placeholder="lb">
+                  <span class="help-text help-text-right">lb</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="height" class="col-xs-3 col-sm-2 control-label">Height</label>
+              <div ng-if="vm.unitSystem == 'metric'" class="col-xs-4 has-helper-text">
+                <input type="text" ng-model="vm.height.cm" ng-change="vm.calculateHeights()" class="form-control"
+                       id="height"
+                       placeholder="cm">
+                <span class="help-text help-text-right">cm</span>
+              </div>
+              <div ng-if="vm.unitSystem == 'imperial'" class="col-xs-3 us-height">
+                <input type="text" ng-model="vm.height.ft" ng-change="vm.calculateHeights()" name="feet"
+                       class="form-control" id="feet" placeholder="5">
+                <span class="help-text help-text-right">ft</span>
+              </div>
+              <div ng-if="vm.unitSystem == 'imperial'" class="col-xs-3 us-height">
+                <input type="text" ng-model="vm.height.inch" ng-change="vm.calculateHeights()" name="inch"
+                       class="form-control" id="inch" placeholder="6">
+                <span class="help-text help-text-right">inch</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="age" class="col-xs-3 col-sm-2 control-label">Age</label>
+              <div class="col-xs-4">
+                <input ng-model="vm.age" type="text" class="form-control" id="age" placeholder="30">
+              </div>
+            </div>
+            <h5>
+              <strong>Exercise Level (optional)</strong>
+            </h5>
+            <div class="form-group">
+              <div class="col-sm-8">
+                <select ng-model="vm.exerciseLevel" class="form-control"
+                        ng-options="idx*1 as level.title for (idx, level) in vm.exerciseLevels">
+                </select>
+              </div>
+            </div>
+          </form>
+
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default" ng-show="vm.getRecommendedCalories()">
+            <div class="panel-heading">
+              <h3 class="panel-title">Your Daily Calories</h3>
+            </div>
+            <div class="panel-body">
+              <div class="col-md-offset-1 col-md-10">
+                <dl class="your-daily-calorie">
+                  <dt>{{vm.getRecommendedCalories() | fdaRound: 'calories'}}</dt>
+                  <dd>Maintain Current Weight</dd>
+                  <dt>{{vm.getRecommendedCalories() - 500 | fdaRound: 'calories'}}</dt>
+                  <dd>Lose
+                    <span ng-if="vm.unitSystem === 'metric'">~0.5 kg</span>
+                    <span ng-if="vm.unitSystem === 'imperial'">~1 lb</span>
+                    per week
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+
+          <div class="col-md-12 padding-top">
+
+          <p class="disclaimer">
+            <strong>Disclaimer:</strong> This information is for use in adults defined as individuals 18 years of age or older and not by younger people, or pregnant or breastfeeding women. This information is not intended to provide medical advice. A health care provider who has examined you and knows your medical history is the best person to diagnose and treat your health problem. If you have specific health questions, please consult your health care provider.
+          </p>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

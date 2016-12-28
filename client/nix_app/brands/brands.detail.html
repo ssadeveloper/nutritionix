@@ -1,0 +1,125 @@
+<div class="container">
+    <div class="row">
+        <div class="brands-detail-background">
+            <h1 class="brand-title">
+              <span ng-bind-html="vm.brand.name"></span> calories and nutrition information
+            </h1>
+            <h4 class="brand-subtitle">
+                Browse a list of all products from <span ng-bind-html="vm.brand.name"></span>
+            </h4>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.brand.guide">
+        <div class="alert alert-info alert-dietitian-recommendation clearfix" role="alert">
+            <div class="dietitian-recommendation">
+                <h4>
+                  Dietitian's recommendation for <span ng-bind-html="vm.brand.name"></span>
+                </h4>
+                <span ng-bind-html="vm.brand.guide"></span>
+                <i>Recommendation Last Updated: {{vm.brand.guide_updated_at | amDateFormat:'MM/DD/YY'}}</i>
+            </div>
+            <div class="dietitian">
+                <h6 class="text-center"><strong>Recommendation by:</strong></h6>
+                <a class="dietitian-photo" ui-sref="site.about">
+                    <img ng-src="{{vm.brand.dietitian_photo}}" alt="{{vm.brand.dietitian_name}}">
+                </a>
+                <a class="dietitian-name" ui-sref="site.about">{{vm.brand.dietitian_name}}</a>
+            </div>
+            <a href class="dietitian-info"
+               popover="The Nutritionix registered dietitian team has curated this advice
+                  to provide some general tips for how to eat healthier at {{ vm.brand.name }}.
+                  Please note that this is not meant to be medical advice,
+                  and if you have any health questions or concerns, please contact your primary care physician."
+               popover-trigger="focus" popover-placement="left">
+                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div ads></div>
+        </div>
+    </div>
+    <div class="row brands-detail-background">
+        <div class="col-xs-6">
+            <input type="text" class="form-control" placeholder="Search {{vm.brand.name}} Items"
+                   ng-model="vm.navigationState.params.search"
+                   ng-keyup="$event.which === 13 && vm.search.perform()">
+        </div>
+      <div class="col-xs-6">
+        <button class="btn btn-success" ng-click="vm.search.perform()">Search</button>
+      </div>
+    </div>
+    <div class="row bg-white padding">
+      <div class="col-lg-9" ng-if="vm.total_hits > 0">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-brands-list">
+                        <thead>
+                            <th>
+                                Product Name
+                            </th>
+                            <th class="text-center">
+                                Calories
+                            </th>
+                            <th>
+                            </th>
+                        </thead>
+                        <tr class="item-row item-hover"
+                            ng-repeat="item in vm.items"
+                            ui-sref="site.itemsDetail({
+                                        brand: (vm.brand.name | cleanurl),
+                                        item_name: (item.item_name | cleanurl),
+                                        item_id: item.item_id
+                                     })">
+                            <td class="col-xs-9">
+                                <p>
+                                    <a ui-sref="site.itemsDetail({
+                                                  brand: (vm.brand.name | cleanurl),
+                                                  item_name: (item.item_name | cleanurl),
+                                                  item_id: item.item_id
+                                                })"
+                                       ng-bind-html="item.item_name"></a>
+                                </p>
+                                <span class="grey">{{item.serving_qty}} {{item.serving_unit}} </span>
+                            </td>
+                            <td class="text-center">{{item.calories | caloriesfda}} </td>
+                            <td class="text-center">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-12 text-center" ng-show="vm.items">
+                    <pagination ng-if="vm.items && vm.itemsPerPage < vm.total_hits"
+                                total-items="vm.total_hits"
+                                ng-model="vm.currentPage"
+                                max-size="5"
+                                ng-change="vm.pageChanged()"
+                                items-per-page="vm.itemsPerPage"
+                                class="pagination-sm"
+                                num-pages="numPages"
+                                boundary-links="true"
+                                state="vm.navigationState">
+                    </pagination>
+
+
+                </div>
+                <div class="row padding-bottom" ng-if="vm.items && vm.itemsPerPage < vm.total_hits">
+                    <div class="col-md-offset-3 col-md-6">
+                        <pagination-info total-items="vm.total_hits"
+                                         current-page="vm.currentPage"
+                                         items-per-page="vm.itemsPerPage">
+                        </pagination-info>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div class="col-lg-9" ng-if="vm.total_hits == 0">
+        Sorry, no results were found
+      </div>
+        <div class="col-lg-3">
+            <div ads> </div>
+        </div>
+    </div>
+</div>
